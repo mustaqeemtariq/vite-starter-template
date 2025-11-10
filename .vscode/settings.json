@@ -3,6 +3,9 @@
 		"source.fixAll.eslint": "explicit",
 		"source.organizeImports": "explicit"
 	},
+	"tailwindCSS.experimental.classRegex": [
+    ["([\"'`][^\"'`]*.*?[\"'`])", "[\"'`]([^\"'`]*).*?[\"'`]"]
+  ],
 	"files.exclude": {
 		"**/node_modules": true
 	},

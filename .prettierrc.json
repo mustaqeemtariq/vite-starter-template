@@ -8,5 +8,6 @@
 	"trailingComma": "all",
 	"useTabs": true,
 	"tabWidth": 2,
-	"tailwindFunctions": ["cn"]
+	"plugins": ["prettier-plugin-tailwindcss"],
+	"tailwindFunctions": ["tv"]
 }
