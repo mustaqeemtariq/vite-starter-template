@@ -16,7 +16,8 @@
 		"**/deps": true,
 		"**/dist": true,
 		"**/.cache": true,
-		"typescript/**": true
+		"typescript/**": true,
+    "**/routeTree.gen.ts": true
 	},
 	"files.watcherExclude": {
 		"**/.git/objects/**": true,
@@ -24,8 +25,12 @@
 		"**/node_modules/**": true,
 		"**/bower_components": true,
 		"**/_build": true,
-		"**/deps": true
+		"**/deps": true,
+    "**/routeTree.gen.ts": true
 	},
+	  "files.readonlyInclude": {
+    "**/routeTree.gen.ts": true
+  },
 	"eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
 	"editor.tabSize": 2,
 }
