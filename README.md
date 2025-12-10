@@ -11,7 +11,7 @@
 ### Tech Stack - Overview
 - Vite
 - React - Typscript
-- npm
+- pnpm
 
 ---
 
@@ -30,7 +30,7 @@
 ---
 
 ### Styling
-- TailwindCSS v3
+- TailwindCSS v4
 
 ---
 
@@ -41,16 +41,10 @@
 - Yup (for validations)
 
 ### Routing
-- React-Router-Dom
-
-### Date Manipulation
-- Luxon
+- Tanstack Router
 
 ### HTTP Client
 - Axios
-
-### Global Store (full-blown / lite-version)
-- Redux Toolkit / Zustand
 
 ### Server State
 - React Query
