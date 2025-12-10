@@ -30,7 +30,7 @@
 ---
 
 ### Styling
-- TailwindCSS v3
+- TailwindCSS v4
 
 ---
 
@@ -43,14 +43,8 @@
 ### Routing
 - React-Router-Dom
 
-### Date Manipulation
-- Luxon
-
 ### HTTP Client
 - Axios
-
-### Global Store (full-blown / lite-version)
-- Redux Toolkit / Zustand
 
 ### Server State
 - React Query
