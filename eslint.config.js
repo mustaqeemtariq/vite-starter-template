@@ -1,4 +1,5 @@
 import js from '@eslint/js'
+import pluginRouter from '@tanstack/eslint-plugin-router'
 import ts from '@typescript-eslint/eslint-plugin'
 import tsParser from '@typescript-eslint/parser'
 import checkFile from 'eslint-plugin-check-file'
@@ -7,9 +8,10 @@ import react from 'eslint-plugin-react'
 import globals from 'globals'
 
 export default [
+	...pluginRouter.configs['flat/recommended'],
 	js.configs.recommended,
 	{
-		ignores: ['build', 'node_modules', 'dist', 'tailwind.config.js', 'src/routes/__root.tsx'],
+		ignores: ['build', 'node_modules', 'dist', 'tailwind.config.js'],
 	},
 	{
 		files: ['**/*.js', '**/*.ts', '**/*.tsx'],
@@ -58,21 +60,6 @@ export default [
 			'react/jsx-uses-react': 'off',
 			'react/react-in-jsx-scope': 'off',
 			semi: ['error', 'never'],
-			'check-file/filename-naming-convention': [
-				'error',
-				{
-					'**/*.{ts,tsx}': 'KEBAB_CASE',
-				},
-				{
-					ignoreMiddleExtensions: true,
-				},
-			],
-			'check-file/folder-naming-convention': [
-				'error',
-				{
-					'src/**/!(__tests__)': 'KEBAB_CASE',
-				},
-			],
 		},
 		settings: {
 			react: {

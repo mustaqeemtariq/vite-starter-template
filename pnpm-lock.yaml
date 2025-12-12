@@ -45,6 +45,9 @@ importers:
       '@eslint/js':
         specifier: ^9.39.1
         version: 9.39.1
+      '@tanstack/eslint-plugin-router':
+        specifier: ^1.141.0
+        version: 1.141.0(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3)
       '@tanstack/react-router-devtools':
         specifier: ^1.140.1
         version: 1.140.1(@tanstack/react-router@1.140.1(react-dom@19.2.1(react@19.2.1))(react@19.2.1))(@tanstack/router-core@1.140.1)(csstype@3.2.3)(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(solid-js@1.9.10)
@@ -929,6 +932,11 @@ packages:
     resolution: {integrity: sha512-4+9w8ZHOiGnpcGI6z1TVVfWaX/koK7fKeSYF3qlYg2xpBtbteP2ddBxiarL+HVgfSJGeK5RIxRQmKm4rTJJAwA==}
     peerDependencies:
       vite: ^5.2.0 || ^6 || ^7
+
+  '@tanstack/eslint-plugin-router@1.141.0':
+    resolution: {integrity: sha512-E5QSLvoS8By2UajtUE64CNp22LVyzdqNyR/ponVV+yxONWHC3IzDUUHKBnPxW1yVwRT88qQoJYV0RJL6noW25A==}
+    peerDependencies:
+      eslint: ^8.57.0 || ^9.0.0
 
   '@tanstack/history@1.140.0':
     resolution: {integrity: sha512-u+/dChlWlT3kYa/RmFP+E7xY5EnzvKEKcvKk+XrgWMpBWExQIh3RQX/eUqhqwCXJPNc4jfm1Coj8umnm/hDgyA==}
@@ -3270,6 +3278,14 @@ snapshots:
       '@tailwindcss/oxide': 4.1.17
       tailwindcss: 4.1.17
       vite: 7.2.7(@types/node@24.10.2)(jiti@2.6.1)(lightningcss@1.30.2)(tsx@4.21.0)
+
+  '@tanstack/eslint-plugin-router@1.141.0(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3)':
+    dependencies:
+      '@typescript-eslint/utils': 8.49.0(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3)
+      eslint: 9.39.1(jiti@2.6.1)
+    transitivePeerDependencies:
+      - supports-color
+      - typescript
 
   '@tanstack/history@1.140.0': {}
 
