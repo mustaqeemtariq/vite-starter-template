@@ -1,18 +1,17 @@
 import js from '@eslint/js'
 import pluginRouter from '@tanstack/eslint-plugin-router'
-import * as tseslint from '@typescript-eslint/eslint-plugin'
 import tsParser from '@typescript-eslint/parser'
-import prettierConfig from 'eslint-config-prettier'
 import checkFile from 'eslint-plugin-check-file'
 import prettier from 'eslint-plugin-prettier/recommended'
 import react from 'eslint-plugin-react'
 import { defineConfig } from 'eslint/config'
 import globals from 'globals'
+import tseslint from 'typescript-eslint'
 
 export default defineConfig([
 	prettier,
-	prettierConfig,
 	...pluginRouter.configs['flat/recommended'],
+	...tseslint.configs.recommended,
 	js.configs.recommended,
 	{ ignores: ['build', 'node_modules', 'dist', 'src/routeTree.gen.ts'] },
 	{
@@ -27,11 +26,7 @@ export default defineConfig([
 				ecmaFeatures: { jsx: true },
 			},
 		},
-		plugins: {
-			'@typescript-eslint': tseslint.configs,
-			react,
-			'check-file': checkFile,
-		},
+		plugins: { react, 'check-file': checkFile },
 		rules: {
 			'prettier/prettier': 'warn',
 			camelcase: 'off',
@@ -46,7 +41,8 @@ export default defineConfig([
 			'@typescript-eslint/explicit-function-return-type': 'off',
 			'@typescript-eslint/no-explicit-any': 'off',
 			'@typescript-eslint/no-empty-function': 'off',
-			'@/no-unused-vars': [
+			'no-unused-vars': 'off',
+			'@typescript-eslint/no-unused-vars': [
 				'warn',
 				{ argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
 			],
