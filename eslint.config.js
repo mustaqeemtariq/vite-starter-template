@@ -11,7 +11,13 @@ export default [
 	...pluginRouter.configs['flat/recommended'],
 	js.configs.recommended,
 	{
-		ignores: ['build', 'node_modules', 'dist', 'tailwind.config.js'],
+		ignores: [
+			'build',
+			'node_modules',
+			'dist',
+			'tailwind.config.js',
+			'src/routeTree.gen.ts',
+		],
 	},
 	{
 		files: ['**/*.js', '**/*.ts', '**/*.tsx'],

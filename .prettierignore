@@ -1,5 +1,4 @@
 build
 
 src/styles/main.css
-src/**/__root.ts
-src/**/__root.tsx
+src/routeTree.gen.ts
