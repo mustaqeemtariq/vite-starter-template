@@ -1,79 +1,71 @@
 import js from '@eslint/js'
 import pluginRouter from '@tanstack/eslint-plugin-router'
-import ts from '@typescript-eslint/eslint-plugin'
+import * as tseslint from '@typescript-eslint/eslint-plugin'
 import tsParser from '@typescript-eslint/parser'
+import prettierConfig from 'eslint-config-prettier'
 import checkFile from 'eslint-plugin-check-file'
-import prettier from 'eslint-plugin-prettier'
+import prettier from 'eslint-plugin-prettier/recommended'
 import react from 'eslint-plugin-react'
+import { defineConfig } from 'eslint/config'
 import globals from 'globals'
 
-export default [
+export default defineConfig([
+	prettier,
+	prettierConfig,
 	...pluginRouter.configs['flat/recommended'],
 	js.configs.recommended,
-	{
-		ignores: ['build', 'node_modules', 'dist', 'src/routeTree.gen.ts'],
-	},
+	{ ignores: ['build', 'node_modules', 'dist', 'src/routeTree.gen.ts'] },
 	{
 		files: ['**/*.js', '**/*.ts', '**/*.tsx'],
 		languageOptions: {
 			parser: tsParser,
 			ecmaVersion: 'latest',
 			sourceType: 'module',
-			globals: {
-				...globals.browser,
-			},
+			globals: { ...globals.browser },
 			parserOptions: {
 				tsconfigRootDir: import.meta.dirname,
-				ecmaFeatures: {
-					jsx: true,
-				},
+				ecmaFeatures: { jsx: true },
 			},
 		},
 		plugins: {
-			'@typescript-eslint': ts,
+			'@typescript-eslint': tseslint.configs,
 			react,
-			prettier,
 			'check-file': checkFile,
 		},
 		rules: {
 			'prettier/prettier': 'warn',
 			camelcase: 'off',
+			'prefer-const': 'off',
+			'no-extra-semi': 'warn',
+			semi: ['error', 'never'],
 			'@typescript-eslint/no-use-before-define': 'off',
 			'@typescript-eslint/ban-ts-comment': 'off',
 			'@typescript-eslint/ban-types': 'off',
 			'@typescript-eslint/explicit-module-boundary-types': 'off',
-			'prefer-const': 'off',
 			'@typescript-eslint/prefer-const': 'off',
 			'@typescript-eslint/explicit-function-return-type': 'off',
 			'@typescript-eslint/no-explicit-any': 'off',
-			'react/display-name': 'warn',
-			'react/no-unescaped-entities': 'warn',
-			'react/no-deprecated': 'warn',
-			'@typescript-eslint/no-empty-interface': 'warn',
-			'react/jsx-key': 'warn',
-			'no-extra-semi': 'warn',
 			'@typescript-eslint/no-empty-function': 'off',
-			'@typescript-eslint/no-unused-vars': [
+			'@/no-unused-vars': [
 				'warn',
 				{ argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
 			],
+			'react/display-name': 'warn',
+			'react/no-unescaped-entities': 'warn',
+			'react/no-deprecated': 'warn',
+			'react/jsx-key': 'warn',
 			'react/jsx-uses-react': 'off',
 			'react/react-in-jsx-scope': 'off',
-			semi: ['error', 'never'],
 		},
 		settings: {
-			react: {
-				version: 'detect',
-			},
+			react: { version: 'detect' },
 			'import/resolver': {
 				alias: {
 					map: [['@', './src']],
 					extensions: ['.js', '.jsx', '.ts', '.tsx'],
 				},
 			},
-			tailwindcss: {
-				callees: ['cn', 'clsx', 'classnames'],
-			},
+			tailwindcss: { callees: ['cn', 'clsx', 'classnames'] },
 		},
 	},
-]
+])
