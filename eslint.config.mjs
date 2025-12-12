@@ -9,7 +9,7 @@ import globals from 'globals'
 export default [
 	js.configs.recommended,
 	{
-		ignores: ['build', 'node_modules', 'dist', 'tailwind.config.js'],
+		ignores: ['build', 'node_modules', 'dist'],
 	},
 	{
 		files: ['**/*.js', '**/*.ts', '**/*.tsx'],
