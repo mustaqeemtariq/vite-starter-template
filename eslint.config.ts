@@ -1,6 +1,7 @@
 import eslint from '@eslint/js'
 import tsParser from '@typescript-eslint/parser'
 import checkFile from 'eslint-plugin-check-file'
+import importPlugin from 'eslint-plugin-import'
 import prettier from 'eslint-plugin-prettier/recommended'
 import react from 'eslint-plugin-react'
 import reactHooks from 'eslint-plugin-react-hooks'
@@ -13,6 +14,7 @@ export default defineConfig([
 	eslint.configs.recommended,
 	tseslint.configs.recommended,
 	reactHooks.configs.flat.recommended,
+	importPlugin.flatConfigs.recommended,
 	{ ignores: ['build', 'node_modules', 'dist', 'src/routeTree.gen.ts'] },
 	{
 		files: ['**/*.js', '**/*.ts', '**/*.tsx'],
@@ -30,14 +32,13 @@ export default defineConfig([
 		rules: {
 			'prettier/prettier': 'warn',
 			camelcase: 'off',
-			'prefer-const': 'off',
+			'prefer-const': 'warn',
 			'no-extra-semi': 'warn',
 			semi: ['error', 'never'],
 			'@typescript-eslint/no-use-before-define': 'off',
 			'@typescript-eslint/ban-ts-comment': 'off',
 			'@typescript-eslint/ban-types': 'off',
 			'@typescript-eslint/explicit-module-boundary-types': 'off',
-			'@typescript-eslint/prefer-const': 'off',
 			'@typescript-eslint/explicit-function-return-type': 'off',
 			'@typescript-eslint/no-explicit-any': 'off',
 			'@typescript-eslint/no-empty-function': 'off',
