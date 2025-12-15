@@ -1,4 +1,4 @@
-import js from '@eslint/js'
+import eslint from '@eslint/js'
 import pluginRouter from '@tanstack/eslint-plugin-router'
 import tsParser from '@typescript-eslint/parser'
 import checkFile from 'eslint-plugin-check-file'
@@ -11,10 +11,10 @@ import tseslint from 'typescript-eslint'
 
 export default defineConfig([
 	prettier,
-	...pluginRouter.configs['flat/recommended'],
-	...tseslint.configs.recommended,
+	eslint.configs.recommended,
+	tseslint.configs.recommended,
 	reactHooks.configs.flat.recommended,
-	js.configs.recommended,
+	...pluginRouter.configs['flat/recommended'],
 	{ ignores: ['build', 'node_modules', 'dist', 'src/routeTree.gen.ts'] },
 	{
 		files: ['**/*.js', '**/*.ts', '**/*.tsx'],
