@@ -6,7 +6,7 @@
   "description": "React Typescript Starter Template with Vite",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mustaqeemtariq/cra-vite-setup"
+    "url": "git+https://github.com/mustaqeemtariq/vite-starter-template"
   },
   "keywords": [
     "vite",
@@ -15,7 +15,7 @@
     "template"
   ],
   "author": "Mustaqeem Tariq <mustaqeemtariq66@gmail.com>",
-  "homepage": "https://github.com/mustaqeemtariq/cra-vite-setup",
+  "homepage": "https://github.com/mustaqeemtariq/vite-starter-template",
   "scripts": {
     "start": "PORT=3000 NODE_ENV=development vite",
     "start-secure": "NODE_ENV=development && HTTPS=true vite",
