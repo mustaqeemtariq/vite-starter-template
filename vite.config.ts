@@ -6,16 +6,7 @@ import svgrPlugin from 'vite-plugin-svgr'
 
 export default defineConfig({
 	plugins: [react(), svgrPlugin(), tailwindcss()],
-	resolve: {
-		alias: {
-			'@': path.resolve(__dirname, './src'),
-		},
-	},
-	build: {
-		sourcemap: true,
-		outDir: './build',
-	},
-	server: {
-		port: 3000,
-	},
+	resolve: { alias: { '@': path.resolve(__dirname, './src') } },
+	build: { sourcemap: true, outDir: './build' },
+	server: { port: 3000 },
 })
