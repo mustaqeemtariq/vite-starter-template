@@ -9,14 +9,8 @@ const withSuspense = (component: React.ReactNode) => (
 )
 
 const router = createBrowserRouter([
-	{
-		path: '/',
-		element: <Home />,
-	},
-	{
-		path: '/about',
-		element: withSuspense(<About />),
-	},
+	{ path: '/', element: <Home /> },
+	{ path: '/about', element: withSuspense(<About />) },
 ])
 
 const AppRouter = () => {
