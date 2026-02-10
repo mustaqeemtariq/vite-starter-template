@@ -11,12 +11,12 @@ import globals from 'globals'
 import tseslint from 'typescript-eslint'
 
 export default defineConfig([
-	prettier,
 	eslint.configs.recommended,
 	tseslint.configs.recommended,
 	reactHooks.configs.flat.recommended,
 	importPlugin.flatConfigs.recommended,
 	...pluginRouter.configs['flat/recommended'],
+	prettier,
 	{ ignores: ['build', 'node_modules', 'dist', 'src/routeTree.gen.ts'] },
 	{
 		files: ['**/*.js', '**/*.ts', '**/*.tsx'],
