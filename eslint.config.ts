@@ -8,6 +8,9 @@ import reactHooks from 'eslint-plugin-react-hooks'
 import { defineConfig } from 'eslint/config'
 import globals from 'globals'
 import tseslint from 'typescript-eslint'
+import { fileURLToPath } from 'url'
+
+const __dirname = fileURLToPath(new URL('.', import.meta.url))
 
 export default defineConfig([
 	eslint.configs.recommended,
@@ -24,7 +27,7 @@ export default defineConfig([
 			sourceType: 'module',
 			globals: { ...globals.browser },
 			parserOptions: {
-				tsconfigRootDir: import.meta.dirname,
+				tsconfigRootDir: __dirname,
 				ecmaFeatures: { jsx: true },
 			},
 		},
