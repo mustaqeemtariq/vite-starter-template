@@ -11,7 +11,7 @@ const config: Config = {
 	useTabs: true,
 	objectWrap: 'collapse',
 	tabWidth: 2,
-	plugins: ['prettier-plugin-tailwindcss', "prettier-plugin-organize-imports"],
+	plugins: ['prettier-plugin-tailwindcss', 'prettier-plugin-organize-imports'],
 	tailwindFunctions: ['cn'],
 }
 

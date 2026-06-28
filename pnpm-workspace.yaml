@@ -1,2 +1,10 @@
+allowBuilds:
+  esbuild: true
+minimumReleaseAgeExclude:
+  - '@tanstack/query-core@5.101.2'
+  - '@tanstack/query-devtools@5.101.2'
+  - '@tanstack/react-query-devtools@5.101.2'
+  - '@tanstack/react-query@5.101.2'
+  - prettier@3.9.1
 onlyBuiltDependencies:
   - esbuild
