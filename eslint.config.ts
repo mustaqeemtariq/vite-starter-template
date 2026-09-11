@@ -1,6 +1,5 @@
+import { fixupPluginRules } from '@eslint/compat'
 import eslint from '@eslint/js'
-import tsParser from '@typescript-eslint/parser'
-import checkFile from 'eslint-plugin-check-file'
 import importPlugin from 'eslint-plugin-import'
 import prettier from 'eslint-plugin-prettier/recommended'
 import react from 'eslint-plugin-react'
@@ -8,27 +7,33 @@ import reactHooks from 'eslint-plugin-react-hooks'
 import { defineConfig } from 'eslint/config'
 import globals from 'globals'
 import tseslint from 'typescript-eslint'
+import { fileURLToPath } from 'url'
+
+const __dirname = fileURLToPath(new URL('.', import.meta.url))
 
 export default defineConfig([
 	eslint.configs.recommended,
 	tseslint.configs.recommended,
 	reactHooks.configs.flat.recommended,
-	importPlugin.flatConfigs.recommended,
+	{
+		...importPlugin.flatConfigs.recommended,
+		plugins: { import: fixupPluginRules(importPlugin) },
+	},
 	prettier,
-	{ ignores: ['build', 'node_modules', 'dist', 'src/routeTree.gen.ts'] },
+	{ ignores: ['build', 'node_modules', 'dist', '.agents/**', '.codex/**'] },
 	{
 		files: ['**/*.js', '**/*.ts', '**/*.tsx'],
 		languageOptions: {
-			parser: tsParser,
+			parser: tseslint.parser,
 			ecmaVersion: 'latest',
 			sourceType: 'module',
 			globals: { ...globals.browser },
 			parserOptions: {
-				tsconfigRootDir: import.meta.dirname,
+				tsconfigRootDir: __dirname,
 				ecmaFeatures: { jsx: true },
 			},
 		},
-		plugins: { react, 'check-file': checkFile },
+		plugins: { react: fixupPluginRules(react) },
 		rules: {
 			'prettier/prettier': 'warn',
 			camelcase: 'off',
@@ -37,7 +42,6 @@ export default defineConfig([
 			semi: ['error', 'never'],
 			'@typescript-eslint/no-use-before-define': 'off',
 			'@typescript-eslint/ban-ts-comment': 'off',
-			'@typescript-eslint/ban-types': 'off',
 			'@typescript-eslint/explicit-module-boundary-types': 'off',
 			'@typescript-eslint/explicit-function-return-type': 'off',
 			'@typescript-eslint/no-explicit-any': 'off',
@@ -57,12 +61,11 @@ export default defineConfig([
 		settings: {
 			react: { version: 'detect' },
 			'import/resolver': {
-				alias: {
-					map: [['@', './src']],
-					extensions: ['.js', '.jsx', '.ts', '.tsx'],
+				typescript: {
+					project: './tsconfig.json',
+					alias: { '@': [fileURLToPath(new URL('./src', import.meta.url))] },
 				},
 			},
-			tailwindcss: { callees: ['cn', 'clsx', 'classnames'] },
 		},
 	},
 ])

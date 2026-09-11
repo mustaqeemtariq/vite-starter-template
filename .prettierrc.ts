@@ -1,6 +1,7 @@
 import { type Config } from 'prettier'
+import { type PluginOptions } from 'prettier-plugin-tailwindcss'
 
-const config: Config = {
+const config: Config & PluginOptions = {
 	singleQuote: true,
 	semi: false,
 	printWidth: 80,
@@ -11,8 +12,9 @@ const config: Config = {
 	useTabs: true,
 	objectWrap: 'collapse',
 	tabWidth: 2,
-	plugins: ['prettier-plugin-tailwindcss', 'prettier-plugin-organize-imports'],
+	plugins: ['prettier-plugin-organize-imports', 'prettier-plugin-tailwindcss'],
 	tailwindFunctions: ['cn'],
+	tailwindStylesheet: './src/styles/main.css',
 }
 
 export default config
