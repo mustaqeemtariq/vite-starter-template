@@ -22,6 +22,12 @@
 ---
 
 ### Lint and Formatting
+
+Use Node.js 22.18+ (22.x) or 24.3+ for the TypeScript configuration files.
+Run `pnpm lint` to fix lint errors, `pnpm lint:check` to see errors and warnings without changing files, and `pnpm format` to format files.
+
+ESLint 10 uses `@eslint/compat` for the React and import plugins, which still declare ESLint 9 peer ranges. Their peer warnings remain until upstream adds ESLint 10 support. TypeScript stays on 6.x because typescript-eslint and the Prettier import organizer do not support the TypeScript 7 API.
+
 - Eslint & Prettier Configured
 - Lints
   - react

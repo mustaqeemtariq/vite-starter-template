@@ -3,7 +3,6 @@ import { tanstackRouter } from '@tanstack/router-plugin/vite'
 import react from '@vitejs/plugin-react'
 import path from 'path'
 import { defineConfig } from 'vite'
-// eslint-disable-next-line import/default
 import svgrPlugin from 'vite-plugin-svgr'
 
 export default defineConfig({
@@ -13,7 +12,7 @@ export default defineConfig({
 		svgrPlugin(),
 		tailwindcss(),
 	],
-	resolve: { alias: { '@': path.resolve(__dirname, './src') } },
+	resolve: { alias: { '@': path.resolve(import.meta.dirname, './src') } },
 	build: { sourcemap: true, outDir: './build' },
 	server: { port: 3000 },
 })
