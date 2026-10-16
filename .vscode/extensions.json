@@ -1,9 +1,6 @@
 {
-  "recommendations": [
-		"dbaeumer.vscode-eslint",
-		"esbenp.prettier-vscode",
-		"csstools.postcss",
+	"recommendations": [
 		"bradlc.vscode-tailwindcss",
-		"editorconfig.editorconfig"
+		"VoidZero.vite-plus-extension-pack"
 	]
 }

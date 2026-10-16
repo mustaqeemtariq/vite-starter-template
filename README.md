@@ -1,62 +1,57 @@
-# Drop-in Replacement for [CRA](http://create-react-app.dev/) but powered by [Vite](https://vitejs.dev/)
+# React + TypeScript starter powered by Vite+
 
-### Things in CRA, supported here:
-- Import SVG's directly as React Component via SVGR
-- ESLint Rules & Prettier
-- Tailwind
-- Support for path aliases
+A Create React App alternative using [Vite+](https://viteplus.dev/), with React, TypeScript, Tailwind CSS v4, React Router, and Axios.
 
----
+## Getting started
 
-### Tech Stack - Overview
-- Vite
-- React - Typscript
-- pnpm
+Install [Vite+](https://viteplus.dev/guide/). For development including commit hooks, use Node.js 22.22.1+ (22.x) or 24.11+ and Git 2.32+. The package itself declares a lower Node.js minimum, but `vp staged` requires these newer versions.
 
----
+```sh
+vp install
+vp run start
+```
 
-### Editor Config
+The development server runs at http://localhost:3000.
 
-- vscode settings & extension recommendations
-  
----
+## Commands
 
-### Lint and Formatting
+| Command             | Purpose                                                |
+| ------------------- | ------------------------------------------------------ |
+| `vp run start`      | Start the development server on port 3000              |
+| `vp run build`      | Run TypeScript checks and build into `build/`          |
+| `vp preview`        | Preview the production build locally                   |
+| `vp check`          | Check formatting, lint rules, and types                |
+| `vp run lint`       | Fix lint issues where possible, suppressing warnings   |
+| `vp run lint:check` | Report lint errors and warnings without changing files |
+| `vp run format`     | Format files with Oxfmt                                |
 
-Use Node.js 22.18+ (22.x) or 24.3+ for the TypeScript configuration files.
-Run `pnpm lint` to fix lint errors, `pnpm lint:check` to see errors and warnings without changing files, and `pnpm format` to format files.
+Use `vp run build` for the package script that runs `tsc` before building. `vp build` invokes the built-in build command directly.
 
-ESLint 10 uses `@eslint/compat` for the React and import plugins, which still declare ESLint 9 peer ranges. Their peer warnings remain until upstream adds ESLint 10 support. TypeScript stays on 6.x because typescript-eslint and the Prettier import organizer do not support the TypeScript 7 API.
+## Linting and formatting
 
-- Eslint & Prettier Configured
-- Lints
-  - react
-  - typescript
+Configuration lives in `vite.config.ts`:
 
----
+- **Oxlint** checks JavaScript, TypeScript, React, and imports. Type-aware linting and type checking are enabled.
+- **Oxfmt** handles formatting, including Tailwind class sorting. `fmt.ignorePatterns` excludes `build/`.
+- **VS Code** settings use the Oxc extension for formatting and lint fixes. Install the recommended Vite Plus Extension Pack (`VoidZero.vite-plus-extension-pack`) to provide the configured `oxc.oxc-vscode` formatter.
+- **Staged checks** run `vp check --fix` through Vite+ hooks configured by the `prepare` script.
 
-### Styling
-- TailwindCSS v4
+ESLint and Prettier are no longer run separately.
 
----
+### Migration notes
 
-# Other Recommended Libraries:
+The eight unsupported ESLint rules reported during migration are omitted:
 
-### Forms
-- React Hook Form
-- Yup (for validations)
+- `no-dupe-args` and `no-octal`: covered by strict mode in ES modules.
+- `react-hooks/config` and `react-hooks/gating`: not applicable to Oxlint's fixed React Compiler options.
+- `import/no-unresolved`: omitted in favor of TypeScript's module resolution checks.
+- `no-extra-semi` and `semi`: formatting is handled by Oxfmt (`semi: false`).
+- `react/no-deprecated`: replaced by the type-aware [`typescript/no-deprecated`](https://oxc.rs/docs/guide/usage/linter/rules/typescript/no-deprecated.html) rule, which warns about APIs marked `@deprecated`.
 
-### Routing
-- React-Router-Dom
+## Features
 
-### HTTP Client
-- Axios
-
-### Server State
-- React Query
-- SWR
-- RTKQuery
-
-<!-- ### Eslint Plugins
-- [eslint-plugin-jest-dom](https://testing-library.com/docs/ecosystem-eslint-plugin-jest-dom)
-- [typescript-eslint](https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/eslint-plugin) -->
+- Import SVGs as React components with SVGR using `?react`.
+- Use `@/` imports for paths under `src/`.
+- Style with Tailwind CSS v4.
+- Use React Router for client-side routing.
+- Make HTTP requests with Axios.
