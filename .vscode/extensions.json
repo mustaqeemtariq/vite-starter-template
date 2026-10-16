@@ -1,6 +1,5 @@
 {
 	"recommendations": [
-		"csstools.postcss",
 		"bradlc.vscode-tailwindcss",
 		"VoidZero.vite-plus-extension-pack"
 	]
