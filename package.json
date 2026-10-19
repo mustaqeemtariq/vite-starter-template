@@ -2,20 +2,20 @@
 	"name": "vite-react-ts",
 	"version": "0.0.0",
 	"private": true,
-	"type": "module",
 	"description": "React Typescript Starter Template with Vite",
+	"keywords": [
+		"react",
+		"starter",
+		"template",
+		"vite"
+	],
+	"homepage": "https://github.com/mustaqeemtariq/vite-starter-template",
+	"author": "Mustaqeem Tariq <mustaqeemtariq66@gmail.com>",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/mustaqeemtariq/vite-starter-template"
 	},
-	"keywords": [
-		"vite",
-		"react",
-		"starter",
-		"template"
-	],
-	"author": "Mustaqeem Tariq <mustaqeemtariq66@gmail.com>",
-	"homepage": "https://github.com/mustaqeemtariq/vite-starter-template",
+	"type": "module",
 	"scripts": {
 		"start": "PORT=3000 NODE_ENV=development vp dev",
 		"start-secure": "NODE_ENV=development && HTTPS=true vp dev",
@@ -26,33 +26,39 @@
 		"lint:check": "vp lint .",
 		"prepare": "vp config"
 	},
-	"engines": {
-		"node": "^22.18.0 || >=24.3.0"
-	},
 	"dependencies": {
 		"@tailwindcss/vite": "^4.3.3",
-		"@tanstack/react-query": "^5.102.8",
-		"@tanstack/react-query-devtools": "^5.102.8",
-		"@tanstack/react-router": "^1.170.35",
+		"@tanstack/react-query": "^5.104.4",
+		"@tanstack/react-query-devtools": "^5.104.4",
+		"@tanstack/react-router": "^1.170.45",
 		"axios": "^1.20.0",
 		"clsx": "^2.1.1",
-		"react": "^19.3.0",
-		"react-dom": "^19.3.0",
-		"tailwind-merge": "^3.6.0",
+		"react": "^19.3.1",
+		"react-dom": "^19.3.1",
+		"tailwind-merge": "^3.7.0",
 		"tailwind-variants": "^3.3.1",
 		"vite-plugin-svgr": "^5.2.0"
 	},
 	"devDependencies": {
 		"@tanstack/eslint-plugin-router": "^1.162.0",
-		"@tanstack/react-router-devtools": "^1.167.1",
-		"@tanstack/router-plugin": "^1.168.37",
-		"@types/node": "^22.20.2",
+		"@tanstack/intent": "^0.5.6",
+		"@tanstack/react-router-devtools": "^1.167.2",
+		"@tanstack/router-plugin": "^1.168.47",
+		"@types/node": "^26.6.5",
 		"@types/react": "^19.3.0",
 		"@types/react-dom": "^19.3.0",
-		"@vitejs/plugin-react": "^6.1.1",
+		"@vitejs/plugin-react": "^6.1.2",
 		"tailwindcss": "^4.3.3",
-		"typescript": "^6.0.3",
+		"typescript": "^7.0.2",
 		"vite": "catalog:",
 		"vite-plus": "catalog:"
+	},
+	"engines": {
+		"node": "^22.18.0 || >=24.3.0"
+	},
+	"intent": {
+		"skills": [
+			"*"
+		]
 	}
 }

@@ -2,8 +2,8 @@ import tailwindcss from '@tailwindcss/vite'
 import { tanstackRouter } from '@tanstack/router-plugin/vite'
 import react from '@vitejs/plugin-react'
 import path from 'path'
-import { defineConfig, lazyPlugins } from 'vite-plus'
 import svgrPlugin from 'vite-plugin-svgr'
+import { defineConfig, lazyPlugins } from 'vite-plus'
 
 export default defineConfig({
 	staged: { '*': 'vp check --fix' },
@@ -178,6 +178,7 @@ export default defineConfig({
 				},
 				env: { es2026: true, browser: true },
 			},
+			{ files: ['.intent/hooks/**/*.mjs'], env: { node: true } },
 		],
 		options: { typeAware: true, typeCheck: true },
 	},

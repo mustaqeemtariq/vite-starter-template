@@ -38,6 +38,8 @@ Configuration lives in `vite.config.ts`:
 
 ESLint and Prettier are no longer run separately. The TanStack Router ESLint plugin is loaded through Oxlint's JavaScript plugin support.
 
+The project uses TypeScript 7. For matching VS Code diagnostics, install Microsoft's [TypeScript 7 extension](https://marketplace.visualstudio.com/items?itemName=TypeScriptTeam.native-preview) and reload the editor.
+
 ### Migration notes
 
 The eight unsupported ESLint rules reported during migration are omitted:
@@ -47,6 +49,17 @@ The eight unsupported ESLint rules reported during migration are omitted:
 - `import/no-unresolved`: omitted in favor of TypeScript's module resolution checks.
 - `no-extra-semi` and `semi`: formatting is handled by Oxfmt (`semi: false`).
 - `react/no-deprecated`: replaced by the type-aware [`typescript/no-deprecated`](https://oxc.rs/docs/guide/usage/linter/rules/typescript/no-deprecated.html) rule, which warns about APIs marked `@deprecated`.
+
+## AI coding guidance
+
+TanStack Intent is installed locally to discover skills shipped with dependencies. Before substantial changes, follow `AGENTS.md` and load the matching skill:
+
+```sh
+pnpm exec intent list
+pnpm exec intent load @tanstack/router-plugin#router-plugin
+```
+
+The second command is an example for router plugin changes; load only skills relevant to the task. `.codex/hooks.json` registers `.intent/hooks/intent-codex-gate.mjs` to load the catalog into Codex sessions and check for an Intent lookup before file edits. The hook uses the installed CLI, and its session state is stored in the operating system's temporary directory. Both hook files belong in version control.
 
 ## Features
 
